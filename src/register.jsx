@@ -1,8 +1,12 @@
+// Import the useState hook from React and the FormInput component
+
 import React, { useState } from "react";
 import FormInput from "./components/FormInput";
 
 
 export const Register = (props) => {
+    // Declare an array called "inputs" that defines the input fields for the form
+
     const [values, setValues] = useState({
         username: "",
         email: "",
@@ -61,14 +65,36 @@ export const Register = (props) => {
           required: true,
         },
       ];
+
+    // Declare a function called "handleSubmit" that will be called when the form is submitted
+
     
       const handleSubmit = (e) => {
         e.preventDefault();
+
+        // Here, I created an object containing the sign-up details that were entered by the user
+  const signUpDetails = {
+    username: values.username,
+    email: values.email,
+    birthday: values.birthday,
+    password: values.password,
+    confirmPassword: values.confirmPassword,
+    
+  };
+
+  props.onFormSwitch("login");
+
       };
+
+    // Declare a function called "onChange" that will be called when the value of an input field changes
+
     
       const onChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
       };
+
+    // Return the form component with the FormInput component for each input field defined in the "inputs" array
+
     
       return (
         <div className="app">
