@@ -10,7 +10,11 @@ export const Tags = (props) => {
     // create a function to handle the selection of a tag:
 
 
-
+    const handleTagSelection = (tag) => {
+        setSelectedTag(tag);
+        toggleTagModal(false);
+      };
+      
 
 
     
