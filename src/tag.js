@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Modal, Text, TextInput, TouchableOpacity, View } from "react-native";
+
 
 export const Tags = (props) => {
     
@@ -92,8 +94,11 @@ export const Tags = (props) => {
                 borderWidth: 1,
                 borderColor: "#8D8D9C",
                 color: "white",
-                padding: 10 }}
+                padding: 10 
+              }}
+              />
+              </View>
       
-      </View>
+      
     
 }
