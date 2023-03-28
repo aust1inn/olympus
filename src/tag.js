@@ -16,6 +16,33 @@ export const Tags = (props) => {
       };
       
 
+    //   create the tag dropdown component:
 
+    const TagDropdown = () => {
+        const [showTagModal, toggleTagModal] = useState(false);
+      
+        return (
+          <>
+            <TouchableOpacity onPress={() => toggleTagModal(true)}>
+              <Text>{selectedTag ? selectedTag : "Select Tag"}</Text>
+            </TouchableOpacity>
+      
+            <Modal visible={showTagModal} animationType="slide">
+              <View style={{ flex: 1 }}>
+                {tagOptions.map((tag) => (
+                  <TouchableOpacity
+                    key={tag}
+                    style={{ padding: 10 }}
+                    onPress={() => handleTagSelection(tag)}
+                  >
+                    <Text>{tag}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            </Modal>
+          </>
+        );
+      };
+      
     
 }
