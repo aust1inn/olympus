@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
+import { Tags } from "./tag";
 
 export const Login = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(email);
-        history.push('/Tags');
+        navigate('/Tags');
     }
 
     return (
@@ -26,3 +27,17 @@ export const Login = (props) => {
         </div>
     )
 }
+
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route exact path="/" component={Login} />
+        <Route exact path="/Tags" component={Tags} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
