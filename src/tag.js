@@ -43,6 +43,57 @@ export const Tags = (props) => {
           </>
         );
       };
+
+    //   incorporate the TagDropdown component into the main screen:
+
+    const MainScreen = ({ route }) => {
+        const { name } = route.params;
+        const [exerciseName, setExerciseName] = useState("");
+        const [sets, setSets] = useState([
+          { weight: "", reps: "", rpe: "", tag: null },
+          { weight: "", reps: "", rpe: "", tag: null },
+          { weight: "", reps: "", rpe: "", tag: null },
+        ]);
       
+        const handleWeightChange = (text, index) => {
+          const newSets = [...sets];
+          newSets[index].weight = text;
+          setSets(newSets);
+        };
+      
+        const handleRepsChange = (text, index) => {
+          const newSets = [...sets];
+          newSets[index].reps = text;
+          setSets(newSets);
+        };
+      
+        const handleRpeChange = (text, index) => {
+          const newSets = [...sets];
+          newSets[index].rpe = text;
+          setSets(newSets);
+        };
+      
+        const handleTagChange = (tag, index) => {
+          const newSets = [...sets];
+          newSets[index].tag = tag;
+          setSets(newSets);
+        };
+      
+        return (
+          <View style={{ flex: 1, backgroundColor: "#19191C", padding: 20 }}>
+            <Text style={{ color: "white", fontSize: 20, marginBottom: 10 }}>
+              Hi, {name}
+            </Text>
+      
+            <TextInput
+              style={{
+                backgroundColor: "#232329",
+                borderRadius: 5,
+                borderWidth: 1,
+                borderColor: "#8D8D9C",
+                color: "white",
+                padding: 10 }}
+      
+      </View>
     
 }
