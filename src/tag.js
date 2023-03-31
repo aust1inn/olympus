@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Modal, Text, TextInput, TouchableOpacity, View } from "react";
 
 
 export const Tags = (props) => {
@@ -8,44 +8,40 @@ export const Tags = (props) => {
     const tagOptions = ["None", "Warmup", "Working Set", "Drop Set", "Burnout", "Max Attempt", "Assisted", "Negatives"];
 
     const [selectedTag, setSelectedTag] = useState(null);
-
+    const [showTagModal, setShowTagModal] = useState(false);
+  
     // create a function to handle the selection of a tag:
-
-
     const handleTagSelection = (tag) => {
-        setSelectedTag(tag);
-        toggleTagModal(false);
-      };
+      setSelectedTag(tag);
+      setShowTagModal(false);
+    };
       
 
     //   create the tag dropdown component:
 
     const TagDropdown = () => {
-        const [showTagModal, toggleTagModal] = useState(false);
-      
-        return (
-          <>
-            <TouchableOpacity onPress={() => toggleTagModal(true)}>
-              <Text>{selectedTag ? selectedTag : "Select Tag"}</Text>
-            </TouchableOpacity>
-      
-            <Modal visible={showTagModal} animationType="slide">
-              <View style={{ flex: 1 }}>
-                {tagOptions.map((tag) => (
-                  <TouchableOpacity
-                    key={tag}
-                    style={{ padding: 10 }}
-                    onPress={() => handleTagSelection(tag)}
-                  >
-                    <Text>{tag}</Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            </Modal>
-          </>
-        );
-      };
-
+      return (
+        <>
+          <TouchableOpacity onPress={() => setShowTagModal(true)}>
+            <Text>{selectedTag ? selectedTag : "Select Tag"}</Text>
+          </TouchableOpacity>
+  
+          <Modal visible={showTagModal} animationType="slide">
+            <View style={{ flex: 1 }}>
+              {tagOptions.map((tag) => (
+                <TouchableOpacity
+                  key={tag}
+                  style={{ padding: 10 }}
+                  onPress={() => handleTagSelection(tag)}
+                >
+                  <Text>{tag}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          </Modal>
+        </>
+      );
+    };
     //   incorporate the TagDropdown component into the main screen:
 
     const MainScreen = ({ route }) => {
@@ -99,6 +95,6 @@ export const Tags = (props) => {
               />
               </View>
       
-      
+        );
     
-}
+            }}
