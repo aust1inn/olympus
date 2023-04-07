@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
 import { Tags } from "./tag";
+import { Link } from "react-router-dom";
+
 
 export const Login = (props) => {
     const [email, setEmail] = useState('');
@@ -22,8 +24,10 @@ export const Login = (props) => {
                 <label htmlFor="password">password</label>
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
                 <button  type="submit">Log In</button>
+                <Link  to={{pathname: './tag'}}>NavigateNow</Link>
+
             </form>
-            <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Don't have an account? Register here.</button>
+            <button className="link-btn" onClick={() => props.onFormSwitch('Register')}>Don't have an account? Register here.</button>
         </div>
     )
 }

@@ -1,10 +1,13 @@
-import logo from './logo.svg';
 import React, { useState } from "react";
+// import { View, Text, TextInput } from "react-native";
+import { Tags, TagDropdown} from "./tag";
+
+// import { Tags } from "./Tags";
+
 
 import './App.css';
 import { Login } from './login';
 import { Register } from './register';
-import { Tags } from './tag';
 
 function App() {
   const [currentForm, setCurrentForm] = useState('login');
@@ -23,3 +26,4 @@ function App() {
 }
 
 export default App;
+
