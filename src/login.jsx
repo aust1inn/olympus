@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
-import { Tags } from "./tag";
+import HomeScreen from "./homescreen";
 import { Link } from "react-router-dom";
 
 
@@ -12,7 +12,7 @@ export const Login = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(email);
-        navigate('/Tags');
+        navigate('/homescreen');
     }
 
     return (
@@ -24,24 +24,10 @@ export const Login = (props) => {
                 <label htmlFor="password">password</label>
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
                 <button  type="submit">Log In</button>
-                <Link  to={{pathname: './tag'}}>NavigateNow</Link>
+                <Link  to="/homescreen">NavigateNow</Link>
 
             </form>
-            <button className="link-btn" onClick={() => props.onFormSwitch('Register')}>Don't have an account? Register here.</button>
+            <Link className="link-btn" to="/register">Don't have an account? Register here.</Link>
         </div>
     )
 }
-
-
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route exact path="/" component={Login} />
-        <Route exact path="/Tags" component={Tags} />
-      </Routes>
-    </Router>
-  );
-}
-
-export default App;
