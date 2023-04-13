@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import FormInput from "./components/FormInput";
+import { Link } from "react-router-dom";
+
 
 
 export const Register = (props) => {
@@ -14,7 +16,7 @@ export const Register = (props) => {
         password: "",
         confirmPassword: "",
       });
-    
+   
       const inputs = [
         {
           id: 1,
@@ -68,7 +70,7 @@ export const Register = (props) => {
 
     // Declare a function called "handleSubmit" that will be called when the form is submitted
 
-    
+   
       const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -79,7 +81,7 @@ export const Register = (props) => {
     birthday: values.birthday,
     password: values.password,
     confirmPassword: values.confirmPassword,
-    
+   
   };
 
   props.onFormSwitch("login");
@@ -88,14 +90,14 @@ export const Register = (props) => {
 
     // Declare a function called "onChange" that will be called when the value of an input field changes
 
-    
+   
       const onChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
       };
 
     // Return the form component with the FormInput component for each input field defined in the "inputs" array
 
-    
+   
       return (
         <div className="app">
           <form onSubmit={handleSubmit}>
@@ -109,7 +111,7 @@ export const Register = (props) => {
               />
             ))}
             <button>Submit</button>
-            <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Already have an account? Login here.</button>
+            <Link className="link-btn" to="/">Already have an account? Login here.</Link>
 
           </form>
         </div>
