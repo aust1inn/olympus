@@ -28,10 +28,10 @@ function HomeScreen({ name }) {
           className="bg-gray-200 border-b-2 border-gray-500 flex-1 py-1 px-2"
         />
       </div>
-      <div style={{ display: "flex", flexDirection: "row", marginRight: "20px" }}>
-        <h3 style={{ marginLeft: "150px", marginRight: "150px", padding: "10px" }}>Weight</h3>
-        <h3 style={{ marginRight: "150px", padding: "10px" }}>Reps</h3>
-        <h3 style={{ marginRight: "130px", padding: "10px" }}>RPE</h3>
+      <div style={{ display: "flex", flexDirection: "row", marginRight: "10px" }}>
+        <h3 style={{ marginLeft: "50px", marginRight: "150px", padding: "10px" }}>Weight</h3>
+        <h3 style={{ marginRight: "50px", padding: "10px" }}>Reps</h3>
+        <h3 style={{ marginRight: "50px", padding: "10px" }}>RPE</h3>
       </div>
 
       {workoutSets.map((set, index) => (
